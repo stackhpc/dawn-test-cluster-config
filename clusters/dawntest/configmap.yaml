@@ -95,3 +95,36 @@ data:
               controller:
                 extraArgs:
                   enable-ssl-passthrough: "true"
+      nodeGroupDefaults:
+        kubeadmConfigSpec:
+          files:
+          - path: /etc/kubernetes/patches/kubeletconfiguration0+strategic.json
+            owner: "root:root"
+            permissions: "0644"
+            content: |
+              {
+                "apiVersion": "kubelet.config.k8s.io/v1beta1",
+                "kind": "KubeletConfiguration",
+                "reservedSystemCPUs": "0",
+                "cpuManagerPolicy": "static",
+                "cpuManagerPolicyOptions":
+                {
+                    "full-pcpus-only": "true",
+                },
+                "topologyManagerPolicy": "restricted",
+                "memoryManagerPolicy": "Static",
+                "reservedMemory": [
+                    {
+                      "numaNode": 0,
+                      "limits": {
+                        "memory": "1Gi",
+                      }
+                    }
+                  ],
+                "evictionHard": {
+                  "memory.available": "1Gi",
+                },
+              }
+          joinConfiguration:
+            patches:
+              directory: /etc/kubernetes/patches
