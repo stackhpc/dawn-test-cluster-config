@@ -1,0 +1,13 @@
+resources:
+  - helmrepository.yaml
+  - helmchart.yaml
+  - helmrelease.yaml
+
+configurations:
+  - kustomizeconfig.yaml
+
+configMapGenerator:
+- name: restricted-pss-vaps-values
+  namespace: default
+  files:
+    - values.yaml=values.yaml
