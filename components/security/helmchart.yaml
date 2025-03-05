@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   chart: restricted-pss-vaps
-  version: 0.1.0
+  version: 0.2.0
   sourceRef:
     kind: HelmRepository
     name: restricted-pss-vaps
