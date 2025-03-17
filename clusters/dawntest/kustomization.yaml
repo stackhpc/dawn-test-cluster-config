@@ -6,6 +6,7 @@ resources:
   - configmap.yaml
   - credentials-sealed.yaml
   - ../../components/intel-device-plugin
+  - ../../components/security
 
 # Patch the Helm release for the cluster to update the release name
 #   This ensures we get nicely named resources in OpenStack
