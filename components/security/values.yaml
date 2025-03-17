@@ -20,6 +20,7 @@ defaultBindingNamespaceSelector:
     - openstack-system
     - sealed-secrets-system
     - intel
+    - falco
 
 allowedCapabilities:
 - NET_BIND_SERVICE
