@@ -102,3 +102,14 @@ data:
               controller:
                 extraArgs:
                   enable-ssl-passthrough: "true"
+      longhorn:
+        enabled: true
+        release:
+          values:
+            persistence:
+              defaultNodeSelector:
+                enable: true
+                selector: "capi.stackhpc.com: dawn"
+            defaultSettings:
+              defaultDataPath: /mnt/nvme
+              defaultDataLocality: strict-local
